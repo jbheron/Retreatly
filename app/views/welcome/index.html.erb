@@ -1,0 +1,12 @@
+<% if current_user %>
+<h1><%= "Welcome, #{current_user.first_name}." %></h1>
+<% end %>
+
+<div class="welcome-options">
+	<div class="welcome-options-left">
+		<h1><%= link_to("Create an event", new_event_path) %></h1>
+	</div>
+	<div class="welcome-options-right">
+		<h1><%= link_to("Browse events", events_path) %></h1>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table-container {
+	margin: 5% auto;
+}
+
+.our-table {
+	background-color: white;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: 900px;
+	margin: 5% auto;
+}
+
+.container {
+	margin: 30px auto;
+}
+
+.bold td {
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: blue;
+}
+
+a:visited {
+	color: blue;
+}
