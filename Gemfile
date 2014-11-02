@@ -31,6 +31,8 @@ gem 'carmen-rails'
 
 gem 'faker'
 
+gem 'bootstrap_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

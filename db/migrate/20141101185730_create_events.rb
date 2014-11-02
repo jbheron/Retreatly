@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.date :end_date
       t.integer :price
 
-      t.references :user
+      t.belongs_to :host
       # t.references :location
 
       t.timestamps null: false

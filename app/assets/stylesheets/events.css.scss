@@ -34,9 +34,19 @@ body {
 
 a {
 	text-decoration: none;
-	color: blue;
 }
 
 a:visited {
 	color: blue;
+}
+
+.smaller {
+	margin-left: 5%;
+	width: 30%;
+}
+
+form {
+	display: block;
+	margin: 0 auto;
+	width: 20%;
 }
