@@ -3,10 +3,15 @@
 <% end %>
 
 <div class="welcome-options">
-	<div class="welcome-options-left">
-		<h1><%= link_to("Create an event", new_event_path) %></h1>
-	</div>
+	<%= link_to new_event_path do %>
+		<div class="welcome-options-left">
+			<h1 class="welcome">Create an Event</h1>
+		</div>
+	<% end %>
+
+	<%= link_to events_path do %>
 	<div class="welcome-options-right">
-		<h1><%= link_to("Browse events", events_path) %></h1>
+		<h1 class="welcome">Browse Events</h1>
 	</div>
+	<% end %>
 </div>

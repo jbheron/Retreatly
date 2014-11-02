@@ -2,6 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.welcome-options {
+	width: 70%;
+	margin: 10% auto;
+}
+
+.welcome-options-left, .welcome-options-right {
+	margin: 0 auto;
+	display: inline-block;
+	width: 40%;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: rgba(255, 255, 255, 0.75);
+	text-align: center;
+	height: 200px;
+}
+
+.welcome-options-left {
+	margin: 0 7%;
+}
+
+h1.welcome {
+	line-height: 150px;
+}
+
 body {
 }
 
