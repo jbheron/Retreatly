@@ -1,0 +1,14 @@
+<h1><%= @event.title %></h1>
+<h2>Organized by <%= link_to("#{@host.first_name} #{@host.last_name}", user_path(@host)) %></h2>
+<h3><%= "#{@venue.city}, #{@venue.country}" %></h3>
+<h3><%= "#{@event.start_date.to_date} - #{@event.start_date.to_date}"%></h3>
+<p><%= @event.description %></p>
+<p><%= "Price: $#{@event.price}.00" %></p>
+
+<h3>Lodging Details:</h3>
+<hr>
+<p><%= @venue.lodging %></p>
+
+<h3>Travel Details:</h3>
+<hr>
+<p><%= @venue.travel %></p>
