@@ -1,5 +1,12 @@
 <h1><%= @event.title %></h1>
 <h2>Organized by <%= link_to("#{@host.first_name} #{@host.last_name}", user_path(@host)) %></h2>
+
+<% if current_user && !@event.participants.include?(current_user) %>
+<h2><%= button_to("Join event", event_participants_path(@event), {method: :post, :class => "btn btn-primary btn-sm tag"}) %></h2>
+<% elsif @event.participants.include?(current_user) %>
+<h2><%= button_to("Leave event", event_participant_path(@event, current_user), {method: :delete, :class => "btn btn-primary btn-sm tag"}) %></h2>
+<% end %>
+
 <h3><%= "#{@venue.city}, #{@venue.country}" %></h3>
 <h3><%= "#{@event.start_date.to_date} - #{@event.start_date.to_date}"%></h3>
 <p><%= @event.description %></p>
@@ -12,3 +19,4 @@
 <h3>Travel Details:</h3>
 <hr>
 <p><%= @venue.travel %></p>
+
