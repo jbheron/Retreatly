@@ -11,6 +11,25 @@ body {
 	background-color: white;
 }
 
+.event {
+	border: 1px solid #ddd;
+	background-color: RGBa(255,255,255, 0.7);
+	border-radius: 6px;
+	width: 80%;
+	margin: 9% auto;
+	height: 150px;
+	padding: 10px;
+}
+
+.event:hover {
+	background-color: white;
+	transition: 0.4s;
+}
+
+cntr {
+	margin-top: 20px;
+}
+
 .spacer {
 	height: 100px;
 }

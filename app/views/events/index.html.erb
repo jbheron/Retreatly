@@ -9,12 +9,16 @@
 			<% a = 1 %>
 			<% @events.each do |event|  %>
 			<% i = a % 40 %>
-			<div class="col-xs-3" style="background-image: url('images/<%= i %>-poster.jpg'); height: 200px; background-size: cover; background-repeat: none; width: 25%;">
-				<p><%=	event.title %></p>
-				<p><%=	event. %></p>
-				<p><%=	event.title %></p>
-				<p><%=	event.title %></p>
-			</div>
+			<%= link_to event_path(event) do %>
+				<div class="col-xs-3 cntr" style="background-image: url('images/<%= i %>-poster.jpg'); height: 200px; background-size: cover; background-repeat: none; width: 25%; opacity: 0.8;">
+					<div class="event">
+						<p><%=	event.title %></p>
+						<p><%=	event.host.first_name %> <%=	event.host.last_name %></p>
+						<p>Starting: <%=	event.start_date %></p>
+						<p>Ending: <%=	event.end_date %></p>
+					</div>
+				</div>
+			<% end %>
 			<% a += 1 %>
 			<% end %>
 
