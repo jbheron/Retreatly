@@ -34,7 +34,7 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
       @venue = @event.venues[0]
       @host = @event.host
-      @participants = @event.participants
+      @eventparticipants = @event.participants
     end
 
     def event_params

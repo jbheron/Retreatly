@@ -20,3 +20,10 @@
 <hr>
 <p><%= @venue.travel %></p>
 
+<h3>Registered Participants:</h3>
+<hr>
+<div class="list-group smaller">
+	<% @eventparticipants.all.each do |x| %>
+		<a class="list-group-item"><%= "#{x.first_name} #{x.last_name}" %></a>
+	<% end %>
+</div>
