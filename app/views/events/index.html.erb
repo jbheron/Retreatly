@@ -1,12 +1,34 @@
-<div class="events-container">
-	<table class="table table-striped table-hover our-table" id="index-table">
-		<tr class="bold" id="first-row">
-			<td>Title</td>
-			<td>Organizer</td>
-			<td>Start Date</td>
-			<td>End Date</td>
-			<td>Location</td>
-		</tr>
-		<%= render @events %>
-	</table>
+<div class="container-fluid">
+	<div class="row">
+	</div>
 </div>
+
+<div class="container-fluid">
+	<div class="row">
+
+			<% a = 1 %>
+			<% @events.each do |event|  %>
+			<% i = a % 40 %>
+			<div class="col-xs-3" style="background-image: url('images/<%= i %>-poster.jpg'); height: 200px; background-size: cover; background-repeat: none; width: 25%;">
+				<p><%=	event.title %></p>
+				<p><%=	event. %></p>
+				<p><%=	event.title %></p>
+				<p><%=	event.title %></p>
+			</div>
+			<% a += 1 %>
+			<% end %>
+
+	</div>
+</div>
+	<div class="events-container">
+		<table class="table table-striped table-hover our-table" id="index-table">
+			<tr class="bold" id="first-row">
+				<td>Title</td>
+				<td>Organizer</td>
+				<td>Start Date</td>
+				<td>End Date</td>
+				<td>Location</td>
+			</tr>
+			<%= render @events %>
+		</table>
+	</div>
