@@ -1,0 +1,50 @@
+<div class="event-details">
+  <h1>Retreats that <%= @user.first_name  %> is hosting:</h1>
+<div class="container-fluid">
+  <div class="row">
+
+      <% a = 1 %>
+      <% @user.hosted_events.each do |event|  %>
+      <% i = a % 40 %>
+      <%= link_to event_path(event) do %>
+        <div class="col-xs-3 cntr" style="background-image: url('/images/<%= i %>-poster.jpg'); height: 200px; background-size: cover; background-repeat: none; width: 25%; opacity: 0.8;">
+          <div class="event">
+            <p><%=  event.title %></p>
+            <p><%=  event.host.first_name %> <%=  event.host.last_name %></p>
+            <p>Starting: <%=  event.start_date %></p>
+            <p>Ending: <%=  event.end_date %></p>
+          </div>
+        </div>
+      <% end %>
+      <% a += 1 %>
+      <% end %>
+
+  </div>
+</div>
+</div>
+
+<div class="event-details user-page">
+  <h1>Retreats that <%= @user.first_name  %> is attending:</h1>
+<div class="container-fluid">
+  <div class="row">
+
+      <% a = 1 %>
+      <% @user.events.each do |event|  %>
+      <% i = a % 40 %>
+      <%= link_to event_path(event) do %>
+        <div class="col-xs-3 cntr" style="background-image: url('/images/<%= i %>-poster.jpg'); height: 200px; background-size: cover; background-repeat: none; width: 25%; opacity: 0.8;">
+          <div class="event">
+            <p><%=  event.title %></p>
+            <p><%=  event.host.first_name %> <%=  event.host.last_name %></p>
+            <p>Starting: <%=  event.start_date %></p>
+            <p>Ending: <%=  event.end_date %></p>
+          </div>
+        </div>
+      <% end %>
+      <% a += 1 %>
+      <% end %>
+
+  </div>
+</div>
+</div>
+

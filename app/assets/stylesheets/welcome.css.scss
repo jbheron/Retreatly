@@ -5,7 +5,13 @@
 
 .welcome-options {
 	width: 70%;
-	margin: 10% auto;
+	margin: 15% auto;
+}
+
+body {
+  background-image: url('/images/10-poster.jpg');
+  background-size: cover;
+  background-repeat: none;
 }
 
 .welcome-options-left, .welcome-options-right {
@@ -31,6 +37,23 @@ body {
 }
 
 .leftheader {
+  font-family: 'Lobster', cursive;
 	color: white;
-	margin: 0;
+  margin: 0;
+	padding: 15px;
+  display:inline-block;
+}
+
+.leftheader a {
+  color: lightblue;
+}
+
+.user_info {
+  padding: 15px;
+  display: inline-block;
+  float:right;
+}
+
+.navbar {
+  margin-top: 1em;
 }

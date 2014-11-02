@@ -1,17 +1,13 @@
-<% if current_user %>
-<h1><%= "Welcome, #{current_user.first_name}." %></h1>
-<% end %>
-
 <div class="welcome-options">
 	<%= link_to new_event_path do %>
 		<div class="welcome-options-left">
-			<h1 class="welcome">Create an Event</h1>
+			<h1 class="welcome">Create a Retreat</h1>
 		</div>
 	<% end %>
 
 	<%= link_to events_path do %>
 	<div class="welcome-options-right">
-		<h1 class="welcome">Browse Events</h1>
+		<h1 class="welcome">Browse Retreats</h1>
 	</div>
 	<% end %>
 </div>

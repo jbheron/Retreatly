@@ -1,31 +1,39 @@
-<h1><%= @event.title %></h1>
-<h2>Organized by <%= link_to("#{@host.first_name} #{@host.last_name}", user_path(@host)) %></h2>
+<div class="show-event">
+  <h1><%= @event.title %></h1>
+  <h2>Organized by <%= link_to("#{@host.first_name} #{@host.last_name}", user_path(@host)) %></h2>
 
-<% if current_user && !@event.participants.include?(current_user) %>
-<h2><%= button_to("Join event", event_participants_path(@event), {method: :post, :class => "btn btn-primary btn-sm tag"}) %></h2>
-<% elsif @event.participants.include?(current_user) %>
-<h2><%= button_to("Leave event", event_participant_path(@event, current_user), {method: :delete, :class => "btn btn-primary btn-sm tag"}) %></h2>
-<% end %>
+  <% if current_user && !@event.participants.include?(current_user) %>
+  <h2><%= button_to("Join event", event_participants_path(@event), {method: :post, :class => "btn btn-primary btn-sm tag"}) %></h2>
+  <% elsif @event.participants.include?(current_user) %>
+  <h2><%= button_to("Leave event", event_participant_path(@event, current_user), {method: :delete, :class => "btn btn-primary btn-sm tag"}) %></h2>
+  <% end %>
 
-<h3><%= "#{@venue.city}, #{@venue.country}" %></h3>
-<h3><%= "#{@event.start_date.to_date} - #{@event.start_date.to_date}"%></h3>
-<p><%= @event.description %></p>
-<p><%= "Price: $#{@event.price}.00" %></p>
+  <h3><%= "#{@venue.city}, #{@venue.country}" %></h3>
+  <h3><%= "#{@event.start_date.to_date} - #{@event.start_date.to_date}"%></h3>
+  <p><%= @event.description %></p>
+  <p><%= "Price: $#{@event.price}.00" %></p>
+</div>
 
-<h3>Lodging Details:</h3>
-<hr>
-<p><%= @venue.lodging %></p>
+<div class="event-details">
+  <h3>Lodging Details:</h3>
+  <hr>
+  <p><%= @venue.lodging %></p>
+</div>
 
+<div class="event-details">
 <h3>Travel Details:</h3>
 <hr>
 <p><%= @venue.travel %></p>
+</div>
 
+<div class="event-details">
 <h3>Registered Participants:</h3>
 <hr>
 <div class="list-group smaller">
-	<% @eventparticipants.all.uniq.order('updated_at asc').each do |x| %>
-		<a href=<%= user_path(x) %> class="list-group-item"><%= "#{x.first_name} #{x.last_name}" %>
-			<span class="badge">Joined <%= time_ago_in_words(EventsParticipant.where(event_id: @event.id, participant_id: x.id)[0].updated_at) %> ago</span>
-		</a>
-	<% end %>
+  <% @eventparticipants.all.uniq.order('updated_at asc').each do |x| %>
+    <a href=<%= user_path(x) %> class="list-group-item"><%= "#{x.first_name} #{x.last_name}" %>
+      <span class="badge">Joined <%= time_ago_in_words(EventsParticipant.where(event_id: @event.id, participant_id: x.id)[0].updated_at) %> ago</span>
+    </a>
+  <% end %>
+</div>
 </div>

@@ -7,8 +7,13 @@
 	margin: 5% auto;
 }
 
-body {
-	background-color: white;
+.show-event, .event-details {
+	border: 1px solid #ddd;
+	background-color: RGBa(255,255,255, 0.7);
+	border-radius: 6px;
+	width: 80%;
+	margin: 10% auto 0 auto;
+	padding: 20px;
 }
 
 .event {
@@ -72,4 +77,17 @@ form {
 	border: 1px solid #ddd;
 	border-radius: 8px;
 	padding: 40px;
+}
+
+.smaller {
+	width: 80%;
+	margin: 3% auto;
+}
+
+#index-events {
+	margin-top: 15%;
+}
+
+.user-page {
+	margin-bottom: 5%;
 }
