@@ -16,12 +16,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params.merge(user_id: current_user.id))
+    @event = Event.new(event_params.merge(host_id: current_user.id))
 
     if @event.save
-      p "*"*100
-      p @event
-      p "*"*100
       redirect_to new_event_venue_path(@event)
     end
   end
@@ -36,7 +33,8 @@ class EventsController < ApplicationController
     def find_event_and_venue
       @event = Event.find(params[:id])
       @venue = @event.venues[0]
-      @host = User.find(@event.user_id)
+      @host = @event.host
+      @participants = @event.participants
     end
 
     def event_params
