@@ -22,6 +22,6 @@ end
 Event.all.each do |event|
 	5.times do
 		id = rand(1..User.all.length)
-		EventsParticipant.create(event_id: event.id, user_id: id, updated_at: Time.now()-rand(200))
+		EventsParticipant.create(event_id: event.id, participant_id: id, updated_at: Time.now()-rand(200))
 	end
 end

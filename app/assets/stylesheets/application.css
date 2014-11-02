@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require ../../../vendor/assets/stylesheets/bootstrap.min.css
+ *= require rails_bootstrap_forms
  *= require_tree .
  *= require_self
  */
