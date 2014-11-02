@@ -20,6 +20,8 @@ User.all.each do |user|
 end
 
 Event.all.each do |event|
-	event.participants << User.all.sample(5)
-	event.save
+	5.times do
+		id = rand(1..User.all.length)
+		EventsParticipant.create(event_id: event.id, user_id: id, updated_at: Time.now()-rand(200))
+	end
 end

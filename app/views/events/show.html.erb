@@ -24,6 +24,8 @@
 <hr>
 <div class="list-group smaller">
 	<% @eventparticipants.all.each do |x| %>
-		<a class="list-group-item"><%= "#{x.first_name} #{x.last_name}" %></a>
+		<a href=<%= user_path(x) %> class="list-group-item"><%= "#{x.first_name} #{x.last_name}" %>
+			<span class="badge">Joined <%= time_ago_in_words(EventsParticipant.find(event_id: @event.id, participant_id: x.id).updated_at) %> ago</span>
+		</a>
 	<% end %>
 </div>
