@@ -7,23 +7,60 @@
 </head>
 
 <body>
-<p>Firstly, set yourself up with an AWS account if you don’t have one already. Use the AWS free tier, free usage for 12 months.</p>
+<h1>Porting db to AWS</h1>
+<ul>
+  <li><p>Firstly, set yourself up with an AWS account if you don't have one already. Use the AWS free tier, free usage for 12 months.</p></li>
+</ul>
 
-<h3>Why></h3>
-<p>If you need a database with more than 10,000 rows you could upgrade to one of Heroku’s production databases.</p>
+<h3>Why bother?</h3>
+<ul>
+  <li><p>If you need a database with more than 10,000 rows you could upgrade to one of Heroku's production databases.</p></li>
+</ul>
 
 <h3>SETUP: </h3>
-<p>A: You have a project on Heroku</p>
-<p>Dump your database</p>
-<p>Create a AWS account</p>
-<p>Setup a database instance on AWS</p>
-<p></p>
-<p></p>
-<p></p>
-<p>Setup a database instance on AWS</p>
+<ul>
+  <li><p>A: You have a project on Heroku</p></li>
+
+  <li><p>Create a AWS account</p></li>
+  <li><p>Setup a database instance on AWS</p></li>
+  <li><p>Dump your Heroku database: or do it later</p></li>
+  <p>pg_dump -U zdhzjqfbuekujc d3cov3qnejfje5 -h ec2-54-83-204-104.compute-1.amazonaws.com -p 5432 -W -f dbdump.sql</p>
+
+  <li><p>Engine Selection:PostgreSQL</p></li>
+  <li><p>Production? Select No. We want to use this under the RDS Free Usage Tier.</p></li>
+  <li><p>Set DB Instance Details</p></li>
+  <li><p>Additional Config
+  The only thing you should need to change here is Database Name. I just used the app name again.</p></li>
+  <li><p>Launch DB Instance!</p></li>
+  <li><p>Once you get your endpoint...Get your AWS database to import the dump from Heroku</p></li>
+  <li><p>Telling Heroku to point to your AWS database</p></li>
+  <li><p>Run the following command from your terminal in the same directory of your Heroku app</p></li>
+
+  <li><p>heroku config:set DATABASE_URL=postgres://username:password@hostname:port/databasename</p></li>
+
+  <li><p>You should get something resembling the following:</p></li>
+
+  <li><p>link probably does not work!!
+    heroku config:set DATABASE_URL=postgres://awsuser:mypassword@mydbinstance.c3klnfidaiqy.us-west-2.rds.amazonaws.com:5432/mydb</p></li>
+
+  <li><p>After you run that command Heroku should restart your app instance and you'll be good to go.</p></li>
+</ul>
 
 <h3>Problems</h3>
-<p>dumping db command!!</p>
+<ul>
+  <li><p>Setting up an AWS account takes a while!</p></li>
+  <li><p>Poor documentation on dumping db and other bash commands</p></li>
+  <li><p>dumping db command errors!!</p></li>
+  <li><p>poor documentation on Capistrano</p></li>
+</ul>
+
+<h3>Other options</h3>
+<ul>
+<li><p>B: Ninefold: easy, free, rails apps only</p></li>
+<li><p>C: Git/Capistrano: You know how to use git, Cap docs for mac out of date, you can create a recipe to automate your deployment, once you figure out how to use it. concept: figure out how to deploy and put it in a script.</p>
+<p></p></li>
+</ul>
+
 
 </body>
 </html>
